@@ -39,9 +39,64 @@ const API_URL = 'http://localhost:8000/analyze';
  * 1. Preset Satellite Imagery Generator (Canvas-based SVGs)
  * ------------------------------------------------------------- */
 const SAMPLE_PRESETS = {
+  flood: {
+    title: 'flood_image.png',
+    resolution: '1920 x 1080 (10m GSD - Sentinel-2)',
+    category: 'flood',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+      <defs>
+        <linearGradient id="floodWater" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0284c7"/><stop offset="100%" stop-color="#0369a1"/></linearGradient>
+        <linearGradient id="submergedField" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#0e7490"/><stop offset="100%" stop-color="#155e75"/></linearGradient>
+      </defs>
+      <!-- Background rural terrain -->
+      <rect width="800" height="500" fill="#4d7c0f"/>
+      <!-- Submerged floodplain zones -->
+      <path d="M0 100 Q 200 60, 400 130 T 800 110 L 800 390 Q 600 420, 380 340 T 0 380 Z" fill="url(#submergedField)" opacity="0.85"/>
+      <!-- Main Swollen River Channel -->
+      <path d="M-20 200 Q 220 120, 420 250 T 820 220" stroke="url(#floodWater)" stroke-width="75" fill="none" stroke-linecap="round"/>
+      <!-- Inundated agricultural parcels -->
+      <rect x="60" y="80" width="110" height="70" rx="4" fill="#0891b2" opacity="0.75" stroke="#164e63" stroke-width="2"/>
+      <rect x="220" y="70" width="130" height="60" rx="4" fill="#0e7490" opacity="0.8" stroke="#164e63" stroke-width="2"/>
+      <rect x="520" y="270" width="140" height="85" rx="4" fill="#0891b2" opacity="0.75" stroke="#164e63" stroke-width="2"/>
+      <rect x="100" y="320" width="120" height="70" rx="4" fill="#0e7490" opacity="0.8" stroke="#164e63" stroke-width="2"/>
+      <!-- Severed Highway -->
+      <path d="M0 450 L 800 50" stroke="#94a3b8" stroke-width="8" stroke-dasharray="180 80 200 40" fill="none"/>
+      <!-- Isolated Settlement Pocket -->
+      <circle cx="680" cy="180" r="35" fill="#78350f" stroke="#ca8a04" stroke-width="2"/>
+      <rect x="665" y="165" width="12" height="12" fill="#f8fafc"/>
+      <rect x="685" y="175" width="14" height="12" fill="#f8fafc"/>
+      <!-- Water Sediment Plumes -->
+      <ellipse cx="440" cy="260" rx="60" ry="25" fill="#ca8a04" opacity="0.5"/>
+    </svg>`
+  },
+  deforestation: {
+    title: 'deforestation_image.png',
+    resolution: '1920 x 1080 (5m GSD - PlanetScope)',
+    category: 'deforestation',
+    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+      <!-- Intact Rainforest Canopy (Green) -->
+      <rect width="800" height="500" fill="#14532d"/>
+      <circle cx="120" cy="100" r="140" fill="#052e16"/>
+      <circle cx="700" cy="80" r="160" fill="#052e16"/>
+      <circle cx="100" cy="420" r="150" fill="#052e16"/>
+      <!-- Clear-Cut / Deforested Exposed Soil (Brown/Tan) -->
+      <path d="M300 0 L 520 0 L 580 500 L 260 500 Z" fill="#78350f" opacity="0.95"/>
+      <rect x="420" y="80" width="180" height="90" rx="4" fill="#9a3412"/>
+      <rect x="220" y="240" width="160" height="110" rx="4" fill="#a16207"/>
+      <rect x="480" y="320" width="190" height="100" rx="4" fill="#854d0e"/>
+      <!-- Fishbone Logging Roads -->
+      <path d="M420 0 L 440 500" stroke="#fef08a" stroke-width="6" fill="none"/>
+      <path d="M425 90 L 650 60" stroke="#fde047" stroke-width="4" fill="none"/>
+      <path d="M430 180 L 200 160" stroke="#fde047" stroke-width="4" fill="none"/>
+      <path d="M435 280 L 680 260" stroke="#fde047" stroke-width="4" fill="none"/>
+      <path d="M440 380 L 180 370" stroke="#fde047" stroke-width="4" fill="none"/>
+      <!-- Logging Staging Clearing -->
+      <rect x="420" y="220" width="40" height="40" rx="3" fill="#ca8a04"/>
+    </svg>`
+  },
   urban: {
-    title: 'urban_metropolitan_grid.jpg',
-    resolution: '1920 x 1080 (0.5m GSD)',
+    title: 'urban_development.png',
+    resolution: '1920 x 1080 (0.5m GSD - WorldView-3)',
     category: 'urban',
     svg: `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
       <defs>
@@ -71,14 +126,14 @@ const SAMPLE_PRESETS = {
         <rect x="680" y="160" width="90" height="80" rx="4" fill="#475569"/>
         <rect x="680" y="260" width="90" height="90" rx="4" fill="#334155"/>
       </g>
-      <!-- Small Green Park in City Center -->
+      <!-- Green Parks in City Grid -->
       <circle cx="150" cy="210" r="30" fill="#15803d" opacity="0.85"/>
       <rect x="600" y="410" width="160" height="60" rx="8" fill="#166534" opacity="0.8"/>
     </svg>`
   },
   agriculture: {
-    title: 'agricultural_pivot_fields.jpg',
-    resolution: '2048 x 1536 (1.0m GSD)',
+    title: 'agricultural_image.png',
+    resolution: '2048 x 1536 (3m GSD - PlanetScope)',
     category: 'agriculture',
     svg: `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
       <rect width="800" height="500" fill="#78350f" opacity="0.9"/>
@@ -97,56 +152,8 @@ const SAMPLE_PRESETS = {
       <path d="M0 255 L800 255" stroke="#d97706" stroke-width="6" fill="none"/>
       <path d="M270 0 L270 500" stroke="#d97706" stroke-width="5" fill="none"/>
       <path d="M505 0 L505 500" stroke="#d97706" stroke-width="5" fill="none"/>
-      <!-- Small Water Channel -->
+      <!-- Primary Irrigation Canal -->
       <path d="M0 480 Q400 470 800 485" stroke="#0284c7" stroke-width="12" fill="none"/>
-    </svg>`
-  },
-  coastal: {
-    title: 'coastal_harbor_terminal.jpg',
-    resolution: '1920 x 1080 (0.3m GSD)',
-    category: 'coastal',
-    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
-      <!-- Ocean Water Body -->
-      <rect width="800" height="500" fill="#0369a1"/>
-      <path d="M0 0 C250 80, 200 400, 0 500 Z" fill="#334155"/>
-      <!-- Harbor Docks / Piers -->
-      <rect x="180" y="80" width="220" height="35" rx="3" fill="#64748b"/>
-      <rect x="180" y="180" width="260" height="40" rx="3" fill="#64748b"/>
-      <rect x="160" y="290" width="240" height="38" rx="3" fill="#64748b"/>
-      <rect x="140" y="390" width="200" height="35" rx="3" fill="#64748b"/>
-      <!-- Cargo Ships / Vessels -->
-      <rect x="420" y="85" width="140" height="25" rx="8" fill="#dc2626"/>
-      <rect x="460" y="185" width="180" height="30" rx="10" fill="#2563eb"/>
-      <rect x="415" y="295" width="120" height="26" rx="7" fill="#16a34a"/>
-      <!-- Ship Wake Trails -->
-      <path d="M580 97 Q680 95 780 85" stroke="#bae6fd" stroke-width="3" opacity="0.6" stroke-dasharray="8 4"/>
-      <path d="M660 200 Q740 202 800 205" stroke="#bae6fd" stroke-width="4" opacity="0.7" stroke-dasharray="10 5"/>
-      <!-- Port Logistics & Containers -->
-      <rect x="20" y="60" width="90" height="120" fill="#f59e0b" opacity="0.9"/>
-      <rect x="20" y="200" width="80" height="100" fill="#0284c7" opacity="0.9"/>
-      <rect x="20" y="320" width="70" height="90" fill="#dc2626" opacity="0.9"/>
-    </svg>`
-  },
-  river: {
-    title: 'river_delta_rainforest.jpg',
-    resolution: '2560 x 1440 (1.5m GSD)',
-    category: 'river',
-    svg: `<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
-      <!-- Dense Forest Background -->
-      <rect width="800" height="500" fill="#14532d"/>
-      <circle cx="100" cy="80" r="90" fill="#166534"/>
-      <circle cx="700" cy="400" r="140" fill="#166534"/>
-      <circle cx="650" cy="90" r="100" fill="#052e16"/>
-      <circle cx="200" cy="420" r="110" fill="#052e16"/>
-      <!-- Winding River Channel -->
-      <path d="M-20 220 Q180 120 320 280 T650 200 T820 310" stroke="#0284c7" stroke-width="50" fill="none" stroke-linecap="round"/>
-      <!-- Tributaries -->
-      <path d="M300 250 Q360 80 440 0" stroke="#0ea5e9" stroke-width="18" fill="none"/>
-      <path d="M550 210 Q580 400 700 500" stroke="#0ea5e9" stroke-width="16" fill="none"/>
-      <path d="M120 180 Q80 340 0 400" stroke="#38bdf8" stroke-width="12" fill="none"/>
-      <!-- Sandbars & Sediment -->
-      <ellipse cx="320" cy="275" rx="35" ry="12" fill="#d97706" opacity="0.8"/>
-      <ellipse cx="640" cy="210" rx="30" ry="10" fill="#d97706" opacity="0.8"/>
     </svg>`
   }
 };
@@ -431,111 +438,80 @@ copyResponseBtn.addEventListener('click', () => {
 function generateSmartMockResponse(question, presetKey) {
   const q = question.toLowerCase();
 
-  // 1. Urban / Rural Question
-  if (q.includes('urban') || q.includes('rural')) {
-    if (presetKey === 'agriculture' || presetKey === 'river') {
-      return `### Classification: Rural / Natural Landscape
-
-Based on multispectral texture and feature geometry:
-* **Land Use**: Predominantly **Rural & Agricultural** with minimal artificial impervious surfaces (< 4%).
-* **Structure Density**: Sparse standalone rural structures detected; no dense road networks or commercial towers.
-* **Vegetation & Terrain**: High proportion of vegetative cover and open agricultural fields.
-* **Confidence Level**: **97.4%** Rural classification.`;
+  // 1. Flooding & Water Detection
+  if (q.includes('water') || q.includes('flood') || q.includes('inundat') || q.includes('submerg') || q.includes('river')) {
+    if (presetKey === 'flood') {
+      return `### 🌊 Flooding & Inundation Analysis:
+* **Water Coverage**: **38.5%** of scene (baseline: 12.0%).
+* **Flood Severity**: **Critical (Level 4 of 5)** with inundation depth 0.6m - 2.4m.
+* **Impact**: Over 340 hectares of agricultural land submerged; 2 primary transport bridges cut off.
+* **Visible Plumes**: High turbidity sediment runoff visible across floodplain.`;
     }
-    return `### Classification: Urban Metropolitan Area
-
-Based on high-resolution spatial feature extraction:
-* **Land Use**: **High-Density Urban / Industrial**.
-* **Man-Made Features**: Extensive orthogonal grid pattern of buildings, paved roadways, and infrastructure cover (> 82%).
-* **Impervious Surfaces**: Concrete and asphalt signatures dominate the scene.
-* **Green Spaces**: Fragmented urban parks and roadside greenery.
-* **Confidence Level**: **98.2%** Urban classification.`;
-  }
-
-  // 2. Buildings & Roads Detection
-  if (q.includes('building') || q.includes('road') || q.includes('infrastructure')) {
-    if (presetKey === 'coastal') {
-      return `### Infrastructure & Maritime Detection:
-
-* **Harbor & Piers**: Identified 4 major concrete cargo docks and marine berthing facilities.
-* **Vessels Detected**: Detected 3 large cargo/transport ships berthed along the northern and central berths.
-* **Logistics & Roadways**: Container storage yards with primary coastal access highways.
-* **Structural Coverage**: ~45% developed port infrastructure, 55% open water channel.`;
-    }
-    if (presetKey === 'agriculture' || presetKey === 'river') {
-      return `### Infrastructure Analysis:
-
-* **Roadways**: Identified unpaved rural access tracks and secondary transport routes along field perimeters.
-* **Buildings**: Low building density (< 2 structures/km²). No multi-story or industrial complexes detected.
-* **Hydrological Infrastructure**: Irrigation channels and water management ditches identified.`;
-    }
-    return `### Building & Road Network Extraction:
-
-* **Building Footprints**: Successfully segmented multiple commercial and residential blocks arranged in an organized grid layout.
-* **Road Transportation**: Two major multi-lane arterial thoroughfares intersecting with secondary access streets.
-* **Estimated Impervious Surface Ratio**: **76.8%**.
-* **Structural Regularity**: High rectilinear alignment typical of planned urban development.`;
-  }
-
-  // 3. Vegetation / Agriculture Analysis
-  if (q.includes('vegetation') || q.includes('tree') || q.includes('forest') || q.includes('crop') || q.includes('green')) {
     if (presetKey === 'agriculture') {
-      return `### Vegetation & Agricultural Assessment:
-
-* **Cropland Geometry**: Center-pivot circular irrigation parcels clearly visible with distinct spectral signatures.
-* **Estimated NDVI (Normalized Difference Vegetation Index)**: High active photosynthetic biomass (**NDVI: 0.72 - 0.85**).
-* **Crop Stages**: Mixed maturity phases observed — deep green parcels indicate peak canopy cover, while yellowish sectors indicate ripening or fallow soil.
-* **Soil Condition**: Managed agricultural soil with moisture retention along active spray pivots.`;
+      return `### 🌊 Hydrological & Irrigation Network:
+* **Water Infrastructure**: Primary engineered concrete irrigation canal along southern boundary.
+* **Distribution**: Center-pivot rotational spray systems feeding circular crop parcels.
+* **Flooding Status**: No catastrophic flood inundation detected.`;
     }
-    if (presetKey === 'river') {
-      return `### Forest Canopy & Riparian Vegetation:
-
-* **Canopy Density**: Continuous dense subtropical/tropical rainforest canopy cover (> 88%).
-* **Riparian Buffer**: Healthy natural vegetation buffer along both banks of the main river channel.
-* **Ecosystem Health**: Uniform spectral reflectance indicating undisturbed contiguous forest cover with negligible deforestation patches.`;
-    }
-    return `### Vegetation Cover Analysis:
-
-* **Estimated Canopy / Green Space**: **18.5%** of total scene area.
-* **Distribution**: Distributed as municipal green belts, isolated park parcels, and perimeter tree lines.
-* **NDVI Index**: **0.42 (Moderate)** in vegetated zones, contrasting with low values (< 0.1) across paved built-up areas.`;
+    return `### 🌊 Water Bodies Assessment:
+* **Water Features**: No catastrophic flooding detected.
+* **Surface Water**: Localized drainage basins and storm runoff channels consistent with urban/forest terrain.`;
   }
 
-  // 4. Water Bodies Detection
-  if (q.includes('water') || q.includes('river') || q.includes('lake') || q.includes('ocean') || q.includes('sea')) {
-    if (presetKey === 'coastal') {
-      return `### Hydrological & Marine Assessment:
-
-* **Water Feature Type**: Coastal marine bay / deep-water port fairway.
-* **Surface Area**: Occupies approximately **55%** of the captured scene.
-* **Vessel Signatures**: Active wake patterns behind moving vessels indicate directional navigation channels.
-* **Water Quality Metric**: Deep blue spectral return indicating high depth and low suspended sediment in the outer bay.`;
+  // 2. Deforestation & Vegetation Cover
+  if (q.includes('forest') || q.includes('deforest') || q.includes('tree') || q.includes('vegetation') || q.includes('canopy') || q.includes('crop') || q.includes('green')) {
+    if (presetKey === 'deforestation') {
+      return `### 🌲 Deforestation & Canopy Loss Assessment:
+* **Canopy Loss Area**: ~185 hectares cleared in active logging corridor.
+* **Clearance Pattern**: Characteristic **'fishbone'** road-driven clearing pattern.
+* **NDVI Metric**: Intact canopy (0.81) vs. Exposed clear-cut patches (0.15).
+* **Ecological Risk**: Urgent action alert - severe fragmentation of arboreal wildlife corridors.`;
     }
-    if (presetKey === 'river') {
-      return `### River System & Tributary Analysis:
-
-* **Main Channel**: Meandering river system flowing diagonally across the scene with average width ~120m.
-* **Tributaries**: 3 distinct dendritic feeder streams flowing into the primary channel.
-* **Sediment Transport**: Visible sandbars and alluvial sediment accumulation along river inner bends.
-* **Floodplain Status**: Saturated soil moisture along riparian corridors.`;
+    if (presetKey === 'agriculture') {
+      return `### 🌾 Agricultural Land & Crop Health:
+* **Cultivated Area**: **68.4%** active crop parcels with circular center-pivot geometries.
+* **Mean NDVI**: **0.74** indicating healthy vegetative biomass.
+* **Dominant Crops**: Alfalfa, maize/corn, and cereal grain rotations.
+* **Moisture Stress**: Minor stress detected in outer perimeter of Pivot-3.`;
     }
-    return `### Water Body Identification:
-
-* **Water Features**: No major open oceans or natural lakes detected.
-* **Minor Features**: Detected small surface water reservoir / drainage catchment basin in the central quadrant (~3.2% total area).
-* **Spectral Absorption**: High NIR absorption characteristic of open surface water.`;
+    return `### 🌿 Vegetation & Green Spaces:
+* **Green Coverage**: Approximately 14.8% fragmented urban green spaces and roadside trees.
+* **Condition**: Managed municipal park vegetation.`;
   }
 
-  // 5. General Description (Default fallback)
-  return `### Comprehensive Satellite Scene Analysis:
+  // 3. Urban Development & Infrastructure
+  if (q.includes('urban') || q.includes('rural') || q.includes('building') || q.includes('road') || q.includes('infrastructure') || q.includes('city')) {
+    if (presetKey === 'urban') {
+      return `### 🏙️ Urban Development & Infrastructure Grid:
+* **Impervious Surface Ratio**: **80.7%** (High-Density Urban).
+* **Road Network Density**: **14.2 km/km²** with multi-lane arterial avenues and flyovers.
+* **Active Development**: Rapid commercial buildout in southeast quadrant.
+* **Microclimate**: Pronounced Urban Heat Island (UHI) temperature elevation (+6-9°C).`;
+    }
+    return `### 🏗️ Land Use Classification:
+* **Classification**: Predominantly **Rural / Natural / Agricultural** landscape.
+* **Infrastructure Density**: Low building footprint (< 5%) with unpaved secondary access tracks.`;
+  }
 
-* **Primary Terrain**: ${presetKey ? presetKey.toUpperCase() : 'Remote Sensing Optical Capture'}.
-* **Key Observations**:
-  * Distinct spatial patterns displaying both natural environmental features and land use characteristics.
-  * Contrast between high-reflectance surfaces and lower-reflectance terrain.
-* **Environmental & Structural Balance**:
-  * Built/Developed Area: Estimated ~40%
-  * Natural/Vegetated Land: Estimated ~35%
-  * Water/Open Space: Estimated ~25%
-* **Recommendation**: Use specific queries like *"Detect buildings"*, *"Analyze vegetation"*, or *"Is this urban or rural?"* for specialized deep spectral breakdowns.`;
+  // 4. Environmental Impacts & Recommendations
+  if (q.includes('impact') || q.includes('hazard') || q.includes('risk') || q.includes('action') || q.includes('recommend')) {
+    if (presetKey === 'flood') {
+      return `### ⚠️ Environmental & Disaster Risk:
+* **Immediate Hazards**: Crop rotting, severed highway connectivity, potential groundwater contamination.
+* **Recommended Action**: Stage emergency water pumping at western intersection; deploy evacuation boats.`;
+    }
+    if (presetKey === 'deforestation') {
+      return `### ⚠️ Environmental Hazards:
+* **Immediate Hazards**: Biodiversity corridor collapse, severe monsoon erosion, massive carbon emissions from slash burning.
+* **Recommended Action**: Enforce aerial/satellite patrol along access track km-14.`;
+    }
+    return `### ⚠️ Environmental Observations:
+* **Analysis**: Monitored for surface runoff, thermal mass accumulation, and vegetative resilience.`;
+  }
+
+  // 5. Default General Overview
+  return `### 🛰️ SatQuery AI Scene Overview:
+* **Scenario**: ${presetKey ? presetKey.toUpperCase() : 'Calibrated Satellite Observation'}.
+* **Visual Summary**: High-resolution multispectral capture analyzed against verified ground-truth knowledge base.
+* **Recommendation**: Ask specific questions like *"Are there flooded areas?"*, *"Detect deforestation"*, *"Analyze crop health"*, or *"Assess urban infrastructure"*.`;
 }
