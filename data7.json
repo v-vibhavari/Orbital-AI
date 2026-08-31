@@ -1,0 +1,79 @@
+{
+  "image_id": "SAT_SCENARIO_STORM_007",
+
+  "filename": "data 7.png",
+
+  "aliases": [
+    "storm",
+    "cyclone",
+    "tropical_storm",
+    "coastal_storm",
+    "ocean_storm",
+    "cloud_system",
+    "data 7.png",
+    "data 7(1).png",
+    "data 7(2).png",
+    "data_7.png",
+    "data-7.png"
+  ],
+
+  "scenario": "Offshore Tropical Storm and Coastal Weather Analysis",
+
+  "location_context": "Oceanic Region Near a Coastal Landmass",
+
+  "capture_metadata": {
+    "sensor_type": "Optical Weather Satellite Imagery",
+    "spatial_resolution": "Moderate-resolution satellite imagery",
+    "spectral_bands": [
+      "Visible"
+    ],
+    "acquisition_period": "Daytime Satellite Observation"
+  },
+
+  "detailed_description": "Satellite imagery showing a large organized storm system over the ocean near a coastal landmass. The scene is dominated by extensive bright cloud cover with curved and spiral cloud structures indicating a rotating atmospheric system. The densest cloud mass is concentrated offshore, while nearby land and coastline are visible toward the upper and left portions of the image. The storm is primarily located over the ocean rather than directly over the coastal region.",
+
+  "visible_features": [
+    "Large organized cloud system located predominantly over the ocean",
+    "Dense bright cloud mass associated with intense atmospheric activity",
+    "Curved and spiral cloud bands extending outward from the main storm system",
+    "Dark ocean surface visible around portions of the cloud system",
+    "Nearby coastal landmass visible along the upper and left edges of the image",
+    "Outer cloud bands extending toward the coastal region",
+    "Broad circulation pattern suggesting a tropical storm or cyclone-like system"
+  ],
+
+  "land_use_information": {
+    "open_ocean": "Dominant surface visible beneath and around the storm system",
+    "coastal_land": "Visible along the upper and left portions of the image",
+    "dense_cloud_cover": "Dominant atmospheric feature across the central and southern portions",
+    "direct_land_impact": "The main storm center appears offshore; only outer cloud bands approach the nearby coastal region"
+  },
+
+  "detected_changes_and_patterns": [
+    "Large-scale rotating or curved cloud organization",
+    "Dense central cloud concentration over the ocean",
+    "Outer cloud bands extending away from the main storm mass",
+    "Storm system positioned near, but not primarily over, the coastline",
+    "Potential movement of the weather system toward or parallel to the coastal region cannot be determined from a single image"
+  ],
+
+  "possible_environmental_impacts": [
+    "Heavy rainfall in nearby coastal areas if outer rain bands move inland",
+    "Strong winds and rough sea conditions over the affected ocean region",
+    "Potential coastal flooding or storm surge depending on storm intensity and track",
+    "Disruption to marine transportation and fishing activity",
+    "Increased wave activity and coastal erosion risk"
+  ],
+
+  "predefined_observations": {
+    "dominant_feature": "Large offshore storm cloud system",
+    "storm_location": "Primarily over the ocean near a coastal region",
+    "cloud_cover": "Very High",
+    "ocean_visibility": "Visible around portions of the storm system",
+    "coastal_proximity": "High",
+    "storm_structure": "Organized with curved and spiral cloud bands",
+    "possible_storm_type": "Tropical storm or cyclone-like atmospheric system; exact classification requires meteorological data",
+    "landfall_status": "No direct landfall can be confirmed from this single image",
+    "recommended_actions": "Monitor sequential satellite images and meteorological data to track storm movement, intensity, cloud development, and potential impacts on nearby coastal regions."
+  }
+}

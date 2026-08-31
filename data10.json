@@ -1,0 +1,107 @@
+{
+  "image_id": "SAT_SCENARIO_MOUNTAIN_006",
+
+  "filename": "data 10.png",
+
+  "aliases": [
+    "mountains",
+    "mountain_range",
+    "snow",
+    "snow_cover",
+    "high_altitude",
+    "himalayan_terrain",
+    "valleys",
+    "lakes",
+    "rugged_terrain",
+    "glacial_landscape",
+    "data 10.png",
+    "data10.png",
+    "data_10.png",
+    "data-10.png"
+  ],
+
+  "scenario": "High-Altitude Mountain, Snow Cover, and Terrain Analysis",
+
+  "location_context": "High-Altitude Mountainous Region Showing Snow-Covered Peaks, Deep Valleys, Rugged Terrain, and Small Mountain Lakes",
+
+  "capture_metadata": {
+    "sensor_type": "Optical Satellite / High-Resolution Terrain Imagery",
+
+    "spatial_resolution": "High-resolution visual terrain imagery",
+
+    "spectral_bands": [
+      "Visible RGB"
+    ],
+
+    "acquisition_period": "Daytime Observation"
+  },
+
+  "detailed_description": "Satellite imagery showing a rugged high-altitude mountainous landscape characterized by extensive snow-covered peaks, steep valleys, exposed rocky terrain, and several small lakes or water bodies. The western and central portions contain significant snow and ice cover, while eastern areas show drier and more exposed mountainous terrain. Strong elevation differences are visible through shadows, ridgelines, deep valleys, and complex mountain morphology.",
+
+  "visible_features": [
+    "Extensive snow-covered mountain peaks and ridgelines",
+    "Steep valleys and deeply dissected mountainous terrain",
+    "Dark exposed rock and bare mountain surfaces",
+    "Multiple small high-altitude lakes or water bodies",
+    "Strong elevation variation across the landscape",
+    "Possible glacial or snow-fed drainage pathways",
+    "Sharp transitions between snow-covered and snow-free terrain",
+    "Rugged mountain slopes with complex erosion patterns"
+  ],
+
+  "land_use_information": {
+    "snow_and_ice": "High, particularly across elevated mountain peaks and valleys",
+
+    "rocky_or_barren_land": "High, especially in snow-free and drier mountainous regions",
+
+    "vegetation": "Low to moderate, mainly concentrated in lower-elevation valleys and foothill regions",
+
+    "open_water": "Low to moderate, represented by several small lakes or high-altitude water bodies",
+
+    "agricultural_land": "Very limited or not prominently visible due to the rugged high-altitude terrain",
+
+    "built_up_area": "Minimal or not clearly visible at the available scale"
+  },
+
+  "detected_changes_and_patterns": [
+    "Strong variation in snow cover across different elevations and mountain slopes",
+    "Clear transition between heavily snow-covered terrain and dry exposed mountains",
+    "Complex valley networks suggesting long-term erosion and drainage processes",
+    "Small lakes may be associated with glacial, snowmelt, or high-altitude drainage systems",
+    "Mountain morphology indicates significant geological and erosional activity",
+    "Snow distribution may vary seasonally and could be monitored using multi-temporal imagery"
+  ],
+
+  "possible_environmental_impacts": [
+    "Changes in snow and ice cover may influence downstream water availability",
+    "Snowmelt can contribute to seasonal river flow and high-altitude lake formation",
+    "Glacial retreat or reduction in snow cover may alter regional hydrological systems",
+    "Steep slopes may be vulnerable to landslides, rockfalls, or erosion",
+    "Changes in temperature and precipitation could significantly affect snow persistence",
+    "Expansion or contraction of high-altitude lakes may indicate changes in glacial or snowmelt conditions"
+  ],
+
+  "predefined_observations": {
+    "dominant_land_feature": "High-altitude rugged mountain system with extensive snow cover",
+
+    "mountain_presence": "Very High",
+
+    "snow_cover": "High",
+
+    "rocky_terrain": "High",
+
+    "water_body_presence": "Low to Moderate",
+
+    "vegetation_cover": "Low to Moderate",
+
+    "agricultural_activity": "Very Low",
+
+    "urbanization_level": "Very Low",
+
+    "terrain_complexity": "Very High",
+
+    "active_environmental_process": "Snow accumulation and melt, mountain erosion, drainage, and possible glacial activity",
+
+    "recommended_actions": "Monitor seasonal and long-term changes in snow cover, high-altitude lakes, glacier-related features, slope stability, and downstream drainage using multi-temporal satellite imagery."
+  }
+}

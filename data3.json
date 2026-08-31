@@ -1,0 +1,34 @@
+{
+  "image_id": "SAT_SCENARIO_AGRI_003",
+
+  "filename": "data 3.png",
+
+  "aliases": [
+    "data 3.png",
+    "data3.png",
+    "farmland",
+    "agriculture",
+    "agricultural_land",
+    "crop_fields"
+  ],
+
+  "scenario": "Agricultural Land Analysis",
+
+  "location_context": "Rural Agricultural Landscape",
+
+  "detailed_description": "Satellite imagery showing multiple agricultural fields with different vegetation conditions and land-use patterns.",
+
+  "visible_features": [
+    "Agricultural fields",
+    "Green cultivated land",
+    "Brown or harvested fields",
+    "Field boundaries",
+    "Rural access roads"
+  ],
+
+  "predefined_observations": {
+    "dominant_land_feature": "Agricultural land",
+    "vegetation_presence": "Moderate to High",
+    "urbanization_level": "Low"
+  }
+}

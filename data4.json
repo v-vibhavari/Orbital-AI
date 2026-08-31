@@ -1,0 +1,78 @@
+{
+  "image_id": "SAT_SCENARIO_RIVER_002",
+
+  "filename": "godavari_river_sandbar.png",
+
+  "aliases": [
+    "river",
+    "godavari",
+    "godavari_river",
+    "sandbar",
+    "riverbank",
+    "water_body",
+    "data 4.png",
+    "data 4(1).png",
+    "data 4(2).png",
+    "data_4.png",
+    "data-4.png"
+  ],
+
+  "scenario": "River Morphology and Sandbar Analysis",
+
+  "location_context": "Godavari River Corridor with Exposed Sandbar and Surrounding Agricultural Land",
+
+  "capture_metadata": {
+    "sensor_type": "Optical Satellite / High-Resolution Aerial Imagery",
+    "spatial_resolution": "High-resolution visual imagery",
+    "spectral_bands": [
+      "Visible RGB"
+    ],
+    "acquisition_period": "Daytime Clear-Sky Observation"
+  },
+
+  "detailed_description": "Satellite imagery showing a section of the Godavari River characterized by a broad dark-water channel and a large exposed sandy sediment deposit or sandbar. Agricultural fields and cultivated land are visible along the northern riverbank. The scene demonstrates the interaction between river flow, sediment deposition, exposed riverbed surfaces, and surrounding land use.",
+
+  "visible_features": [
+    "Broad dark-water channel associated with the Godavari River",
+    "Large exposed sandy riverbed or sandbar occupying the central and southern portion of the image",
+    "Irregular sediment deposition patterns across the exposed river surface",
+    "Agricultural fields and cultivated land along the upper riverbank",
+    "Riverbank boundaries separating water, sand, and vegetation",
+    "Smaller patches of exposed sediment or shallow-water features within the river channel"
+  ],
+
+  "land_use_information": {
+    "open_water": "Major river channel visible across the upper and central portions of the scene",
+    "exposed_sand_and_sediment": "Large proportion of the visible area, forming an extensive sandbar or exposed riverbed",
+    "agricultural_land": "Visible along the northern riverbank in organized field patterns",
+    "vegetation": "Limited patches concentrated near agricultural areas and riverbanks",
+    "built_up_area": "Minimal or not prominently visible"
+  },
+
+  "detected_changes_and_patterns": [
+    "Prominent sediment accumulation forming a large mid-channel or near-channel sandbar",
+    "Clear separation between deep or dark water and light-colored exposed sediment",
+    "Potential seasonal variation in river water extent based on the large exposed riverbed",
+    "Agricultural land located close to the active river corridor",
+    "Irregular riverbank geometry suggesting natural erosion and deposition processes"
+  ],
+
+  "possible_environmental_impacts": [
+    "Riverbank erosion or channel migration may affect nearby agricultural land",
+    "Seasonal flooding could alter the extent and shape of exposed sandbars",
+    "Sediment deposition may influence river flow paths and local water depth",
+    "Changes in river discharge could significantly modify the visible water-to-sand ratio",
+    "Human activity such as sand extraction or intensive agriculture could potentially affect the river ecosystem, although this cannot be confirmed from this single image alone"
+  ],
+
+  "predefined_observations": {
+    "dominant_land_feature": "River system with extensive exposed sand and sediment deposits",
+    "water_body_presence": "High",
+    "sandbar_presence": "Very High",
+    "agricultural_activity": "Moderate, concentrated along the riverbank",
+    "vegetation_cover": "Low to Moderate",
+    "urbanization_level": "Low",
+    "active_environmental_process": "Sediment deposition and river channel morphology change",
+    "recommended_actions": "Monitor seasonal changes in river width, water extent, sediment deposition, and riverbank erosion using multi-temporal satellite imagery."
+  }
+}

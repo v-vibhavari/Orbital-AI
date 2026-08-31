@@ -1,0 +1,96 @@
+{
+  "image_id": "SAT_SCENARIO_COASTAL_001",
+
+  "filename": "data 1.png",
+
+  "aliases": [
+    "coast",
+    "coastline",
+    "shoreline",
+    "sea",
+    "ocean",
+    "coastal_land",
+    "water_body",
+    "beach",
+    "data 1.png",
+    "data1.png",
+    "data_1.png",
+    "data-1.png"
+  ],
+
+  "scenario": "Coastal Land-Water Interface and Shoreline Analysis",
+
+  "location_context": "Coastal Region Showing Land, Shoreline, Shallow Coastal Water, and Open Sea",
+
+  "capture_metadata": {
+    "sensor_type": "Optical Satellite / High-Resolution Aerial Imagery",
+
+    "spatial_resolution": "Moderate to high-resolution visual imagery",
+
+    "spectral_bands": [
+      "Visible RGB"
+    ],
+
+    "acquisition_period": "Daytime Observation"
+  },
+
+  "detailed_description": "Satellite imagery showing a coastal landscape where terrestrial land transitions into shallow nearshore water and deeper open sea. The image contains an irregular coastline with visible variations in water color, suggesting differences in water depth, suspended sediment, or seabed characteristics. Inland areas show a mixture of vegetation, exposed land, and possible agricultural or sparsely developed surfaces.",
+
+  "visible_features": [
+    "Large open-water body occupying the eastern portion of the image",
+    "Irregular coastline separating terrestrial land from marine water",
+    "Light green or turquoise nearshore water indicating shallow coastal zones or suspended sediment",
+    "Dark blue water representing deeper offshore water",
+    "Vegetated and exposed land surfaces across the western portion of the image",
+    "Possible agricultural or natural land-cover patterns inland",
+    "Small coastal inlets and irregular shoreline formations"
+  ],
+
+  "land_use_information": {
+    "open_water": "Extensive open marine or coastal water occupies a major portion of the eastern side of the image",
+
+    "shallow_coastal_water": "Visible near the shoreline as lighter green and turquoise water zones",
+
+    "vegetation": "Moderate vegetation cover is visible across parts of the inland region",
+
+    "exposed_land": "Large areas of brown or light-colored terrain are visible inland",
+
+    "agricultural_land": "Possible agricultural or managed land patterns are visible, although exact land use cannot be confirmed from this image alone",
+
+    "built_up_area": "Minimal or not prominently visible at the available image resolution"
+  },
+
+  "detected_changes_and_patterns": [
+    "Clear transition from terrestrial land to shallow coastal water and deeper offshore water",
+    "Strong variation in water color suggesting differences in depth, sediment concentration, or underwater surface conditions",
+    "Irregular shoreline geometry indicating natural coastal processes",
+    "Potential sediment transport or deposition visible near the coastal boundary",
+    "Land-cover variation between vegetated, exposed, and potentially cultivated areas"
+  ],
+
+  "possible_environmental_impacts": [
+    "Coastal erosion or shoreline retreat may affect land located close to the water boundary",
+    "Sediment movement could modify shallow-water zones and nearshore morphology",
+    "Sea-level variation and storm events may alter the visible coastline over time",
+    "Changes in vegetation or land use near the coast could influence sediment runoff into coastal waters",
+    "Coastal development or other human activities could potentially affect shoreline stability, although this cannot be confirmed from a single image alone"
+  ],
+
+  "predefined_observations": {
+    "dominant_land_feature": "Coastal land-water interface with extensive open sea",
+
+    "water_body_presence": "Very High",
+
+    "shoreline_presence": "High",
+
+    "shallow_water_presence": "High",
+
+    "vegetation_cover": "Low to Moderate",
+
+    "urbanization_level": "Low or not prominently visible",
+
+    "active_environmental_process": "Coastal sediment transport and shoreline morphology change",
+
+    "recommended_actions": "Monitor multi-temporal changes in shoreline position, coastal water extent, sediment distribution, vegetation cover, and possible coastal erosion."
+  }
+}

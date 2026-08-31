@@ -1,0 +1,81 @@
+{
+  "image_id": "SAT_SCENARIO_COASTAL_005",
+
+  "filename": "data 5.png",
+
+  "aliases": [
+    "coastal",
+    "ocean",
+    "sea",
+    "bay_of_bengal",
+    "coastal_region",
+    "east_coast_india",
+    "andhra_coast",
+    "data 5.png",
+    "data 5(1).png",
+    "data 5(2).png",
+    "data_5.png",
+    "data-5.png"
+  ],
+
+  "scenario": "Coastal and Ocean Surface Analysis",
+
+  "location_context": "Bay of Bengal Near the Eastern Coast of India",
+
+  "capture_metadata": {
+    "sensor_type": "Satellite / Geographic Visualization Imagery",
+    "spatial_resolution": "Regional-scale visualization",
+    "spectral_bands": [
+      "Visible RGB / Map Visualization"
+    ],
+    "acquisition_period": "Static geographic observation"
+  },
+
+  "detailed_description": "Satellite-style geographic imagery showing a large section of the Bay of Bengal and the eastern coastline of India. The dominant feature is the open ocean, with the coastal landmass visible along the right and lower-right portions of the image. Major coastal and inland locations visible in the scene include Visakhapatnam, Kakinada, Vijayawada, Nellore, and Tirupati. The image provides a broad regional view rather than a detailed land-use scene.",
+
+  "visible_features": [
+    "Large expanse of open ocean covering most of the image",
+    "Eastern coastline of India visible along the right side",
+    "Clear transition between deep ocean and coastal land",
+    "Regional coastal geography of the Bay of Bengal",
+    "Coastal urban areas marked near Visakhapatnam and Kakinada",
+    "Inland locations including Vijayawada, Nellore, and Tirupati",
+    "Subtle variations and linear patterns visible across the ocean surface or seafloor visualization"
+  ],
+
+  "land_use_information": {
+    "open_ocean": "Dominant feature covering the majority of the visible scene",
+    "coastal_land": "Visible along the eastern edge of India",
+    "urban_areas": "Regional cities and settlements are present but not visible in sufficient detail for building-level analysis",
+    "vegetation_and_agriculture": "May be present on the land portion but cannot be reliably classified at this regional viewing scale",
+    "coastal_interface": "Clearly visible transition zone between the Bay of Bengal and the Indian landmass"
+  },
+
+  "detected_changes_and_patterns": [
+    "Strong land-ocean boundary defining the eastern coastline of India",
+    "Large uninterrupted marine region extending westward from the coast",
+    "Regional-scale spatial relationship between coastal cities and the Bay of Bengal",
+    "No detailed agricultural parcel patterns are visible at this image scale",
+    "No major storm system, flooding event, or dense cloud cover is clearly visible"
+  ],
+
+  "possible_environmental_impacts": [
+    "Coastal areas may be vulnerable to cyclones and storm surges originating in the Bay of Bengal",
+    "Sea-level rise could affect low-lying coastal regions",
+    "Coastal erosion may alter shoreline morphology over time",
+    "Marine pollution and sediment discharge from coastal rivers could affect nearshore ecosystems",
+    "Extreme weather systems over the Bay of Bengal may impact nearby coastal populations"
+  ],
+
+  "predefined_observations": {
+    "dominant_feature": "Open ocean and eastern Indian coastline",
+    "primary_water_body": "Bay of Bengal",
+    "scene_type": "Regional coastal and ocean view",
+    "ocean_coverage": "Very High",
+    "land_coverage": "Limited to the eastern and southeastern portions of the image",
+    "coastal_proximity": "High",
+    "urban_detail_level": "Low due to regional-scale viewing distance",
+    "storm_presence": "No clearly identifiable major storm system in the image",
+    "recommended_actions": "Use higher-resolution or multi-temporal satellite imagery for detailed analysis of coastal erosion, ocean conditions, urban expansion, river discharge, or environmental change."
+  }
+}
